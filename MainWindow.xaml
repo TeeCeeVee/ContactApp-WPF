@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactsApp"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="450" Width="800">
+ 
     <Grid>
-        
+        <StackPanel Margin="20">
+            <Button Content="Add New Contact"
+                    Click="Button_Click"
+                    Width="200"/>
+        </StackPanel>
+
     </Grid>
 </Window>

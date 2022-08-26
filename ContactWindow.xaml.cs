@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ContactsApp.Classes;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,30 @@ namespace ContactsApp
         public ContactWindow()
         {
             InitializeComponent();
+
+            
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            // save contact
+            Contact contact = new Contact()
+            {
+                NameContact = TxtName.Text,
+                EmailContact = TxtEmail.Text,
+                PhoneContact = TxtPhone.Text
+            };
+
+            string databaseName = "Contacts.db";
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string databasePath = System.IO.Path.Combine(databaseName, folderPath);
+
+            SQLiteConnection connection = new SQLiteConnection(databasePath);
+
+
+
+            Close();
+           
         }
     }
 }
